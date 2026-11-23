@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laboratório seguro de monitoramento com topologia de rede simulada.">
+  <title>Fieldnote — Network Operations Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="#"><span class="signal">⌁</span> fieldnote <small>OPS LAB</small></a><span class="sim-label"><i></i> SIMULAÇÃO LOCAL</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">INFRAESTRUTURA / VISÃO DE OPERAÇÕES</p><h1>Rede em perspectiva.</h1><p>Uma topologia fictícia para praticar leitura de disponibilidade, latência e prioridade operacional.</p></div><div class="uptime"><span>DISPONIBILIDADE</span><strong>99.4<small>%</small></strong><i>AMBIENTE SIMULADO</i></div></section>
+    <section class="overview"><article><span>DISPOSITIVOS</span><strong id="total">—</strong></article><article><span>ESTÁVEIS</span><strong class="ok" id="stable">—</strong></article><article><span>EM OBSERVAÇÃO</span><strong class="warn" id="attention">—</strong></article><article><span>EVENTOS ABERTOS</span><strong class="events" id="events">—</strong></article></section>
+    <section class="map-card">
+      <div class="section-head"><div><p class="eyebrow">TOPOLOGIA DEMONSTRATIVA</p><h2>Campus Aurora</h2></div><span class="map-note">DADOS FICTÍCIOS · SEM VARREDURA</span></div>
+      <div class="topology" aria-label="Diagrama lógico simulado"><span class="node internet">UPLINK</span><span class="connector"></span><span class="node router">ROTEADOR</span><span class="connector"></span><span class="node switch">SWITCH</span><span class="branches"><i></i><i></i><i></i></span><div class="endpoints"><span>ADMIN</span><span>LAB 01</span><span>WI-FI</span></div></div>
+    </section>
+    <section class="devices">
+      <div class="section-head device-head"><div><p class="eyebrow">INVENTÁRIO</p><h2>Equipamentos</h2></div><div class="filters" role="group" aria-label="Filtrar equipamentos"><button class="filter active" data-filter="all" aria-pressed="true">Todos</button><button class="filter" data-filter="stable" aria-pressed="false">Estáveis</button><button class="filter" data-filter="attention" aria-pressed="false">Atenção</button></div></div>
+      <div id="device-list" class="device-list"></div>
+      <p id="empty" class="empty" hidden>Nenhum equipamento neste filtro.</p>
+    </section>
+    <footer>Exercício de aprendizagem seguro · nenhuma conexão com redes ou dispositivos reais.</footer>
+  </main>
+</body>
+</html>
