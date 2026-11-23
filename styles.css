@@ -1,7 +1,341 @@
-:root{font-family:"Segoe UI",Arial,sans-serif;color:#e6edf2;background:#101719;--panel:#172226;--line:#29383c;--green:#9ee6a8;--amber:#f5c46b;--muted:#8da0a4}
-*{box-sizing:border-box}body{margin:0}header{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6vw}.brand{color:#eaf1ed;text-decoration:none;font-weight:700;letter-spacing:-.04em;font-size:17px}.brand small{font-size:8px;letter-spacing:.13em;color:#6b8584;margin-left:10px}.signal{color:var(--green);font-size:23px;margin-right:7px}.sim-label,.eyebrow,.overview span,.uptime>span,.uptime>i,.map-note,.node,.endpoints,.device-id,footer{font:500 9px "Consolas",monospace;letter-spacing:.11em}.sim-label{color:var(--green)}.sim-label i{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;margin-right:7px}
-main{max-width:1180px;margin:auto;padding:0 6vw}.intro{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:56px 0 34px}.eyebrow{color:#6e9382;margin:0 0 13px}.intro h1{font-size:clamp(34px,5vw,53px);letter-spacing:-.06em;margin:0}.intro>div>p:last-child{color:#9aa9a8;font-size:13px;line-height:1.6;max-width:530px;margin-bottom:0}.uptime{border-left:1px solid var(--line);padding-left:28px;min-width:170px}.uptime>span,.uptime>i{display:block;color:var(--muted);font-size:8px;font-style:normal}.uptime strong{display:block;color:var(--green);font:700 38px "Consolas";margin:8px 0}.uptime strong small{font-size:17px}
-.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.overview article,.map-card,.device-card{background:var(--panel);border:1px solid var(--line);border-radius:9px}.overview article{padding:16px}.overview span{color:#7d9293;font-size:8px}.overview strong{display:block;font:600 25px "Consolas";margin-top:11px}.overview .ok{color:var(--green)}.overview .warn{color:var(--amber)}.overview .events{color:#b4a2ff}
-.map-card{margin-top:12px;padding:22px}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:15px}.section-head h2{font-size:18px;margin:0;letter-spacing:-.03em}.map-note{color:#6d8584;font-size:8px}.topology{display:flex;align-items:center;justify-content:center;position:relative;min-height:180px;margin-top:8px}.node{z-index:1;border:1px solid #405858;padding:11px 14px;border-radius:6px;color:#b9cbc6;background:#1a2a2c;font-size:8px}.node.router{border-color:#688e73;color:var(--green)}.connector{width:12%;border-top:1px dashed #47635b}.branches{position:absolute;top:118px;left:62%;width:18%;height:28px;border-top:1px dashed #47635b;border-left:1px dashed #47635b;border-right:1px dashed #47635b}.endpoints{position:absolute;top:156px;left:55%;width:32%;display:flex;justify-content:space-between;color:#78918b;font-size:8px}
-.devices{padding:37px 0}.device-head{margin-bottom:13px}.filters{display:flex;gap:5px}.filter{color:#819696;background:transparent;border:1px solid var(--line);border-radius:5px;padding:7px 10px;font-size:9px;cursor:pointer}.filter.active{background:#294234;border-color:#446c50;color:var(--green)}.filter:focus-visible{outline:2px solid var(--green);outline-offset:2px}.device-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.device-card{display:flex;align-items:center;gap:13px;padding:15px}.device-icon{display:grid;place-items:center;flex:0 0 35px;height:35px;background:#24363a;color:var(--green);border-radius:7px;font:600 12px "Consolas"}.device-info{flex:1;min-width:0}.device-info strong{display:block;font-size:12px}.device-id{display:block;color:#80918e;font-size:8px;margin-top:5px}.device-meta{text-align:right}.latency{font:600 12px "Consolas";color:#c4d2cb}.state{display:block;margin-top:5px;font-size:8px;color:var(--green)}.state.attention{color:var(--amber)}.empty{color:var(--muted);font-size:12px}footer{border-top:1px solid var(--line);padding:19px 0 30px;color:#6d8181;font-size:8px}
-@media(max-width:700px){header{padding:0 18px}.brand small{display:none}main{padding:0 18px}.intro{align-items:flex-start;flex-direction:column;padding:42px 0 25px}.uptime{border-left:0;border-top:1px solid var(--line);padding:14px 0 0;min-width:0}.overview{grid-template-columns:repeat(2,1fr)}.map-card{padding:17px 12px}.topology{min-height:155px}.branches{top:109px}.endpoints{top:143px}.device-head{align-items:flex-start;flex-direction:column}.device-list{grid-template-columns:1fr}}
+﻿:root {
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:#e6edf2;
+  background:#101719;
+  --painel:#172226;
+  --linha:#29383c;
+  --verde:#9ee6a8;
+  --ambar:#f5c46b;
+  --suave:#8da0a4
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0
+}
+header {
+  height:68px;
+  border-bottom:1px solid var(--linha);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6vw
+}
+.marca {
+  color:#eaf1ed;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:-.04em;
+  font-size:17px
+}
+.marca small {
+  font-size:8px;
+  letter-spacing:.13em;
+  color:#6b8584;
+  margin-left:10px
+}
+.sinal {
+  color:var(--verde);
+  font-size:23px;
+  margin-right:7px
+}
+.rotulo-simulacao,.sobretitulo,.resumo span,.disponibilidade>span,.disponibilidade>i,.nota-mapa,.no,.pontos-finais,.identificador-equipamento,footer {
+  font:500 9px "Consolas",monospace;
+  letter-spacing:.11em
+}
+.rotulo-simulacao {
+  color:var(--verde)
+}
+.rotulo-simulacao i {
+  display:inline-block;
+  width:6px;
+  height:6px;
+  background:var(--verde);
+  border-radius:50%;
+  margin-right:7px
+}
+main {
+  max-width:1180px;
+  margin:auto;
+  padding:0 6vw
+}
+.introducao {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  padding:56px 0 34px
+}
+.sobretitulo {
+  color:#6e9382;
+  margin:0 0 13px
+}
+.introducao h1 {
+  font-size:clamp(34px,5vw,53px);
+  letter-spacing:-.06em;
+  margin:0
+}
+.introducao>div>p:last-child {
+  color:#9aa9a8;
+  font-size:13px;
+  line-height:1.6;
+  max-width:530px;
+  margin-bottom:0
+}
+.disponibilidade {
+  border-left:1px solid var(--linha);
+  padding-left:28px;
+  min-width:170px
+}
+.disponibilidade>span,.disponibilidade>i {
+  display:block;
+  color:var(--suave);
+  font-size:8px;
+  font-style:normal
+}
+.disponibilidade strong {
+  display:block;
+  color:var(--verde);
+  font:700 38px "Consolas";
+  margin:8px 0
+}
+.disponibilidade strong small {
+  font-size:17px
+}
+.resumo {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px
+}
+.resumo article,.cartao-topologia,.cartao-equipamento {
+  background:var(--painel);
+  border:1px solid var(--linha);
+  border-radius:9px
+}
+.resumo article {
+  padding:16px
+}
+.resumo span {
+  color:#7d9293;
+  font-size:8px
+}
+.resumo strong {
+  display:block;
+  font:600 25px "Consolas";
+  margin-top:11px
+}
+.resumo .estavel {
+  color:var(--verde)
+}
+.resumo .alerta {
+  color:var(--ambar)
+}
+.resumo .eventos {
+  color:#b4a2ff
+}
+.cartao-topologia {
+  margin-top:12px;
+  padding:22px
+}
+.cabecalho-secao {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px
+}
+.cabecalho-secao h2 {
+  font-size:18px;
+  margin:0;
+  letter-spacing:-.03em
+}
+.nota-mapa {
+  color:#6d8584;
+  font-size:8px
+}
+.topologia {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  min-height:180px;
+  margin-top:8px
+}
+.no {
+  z-index:1;
+  border:1px solid #405858;
+  padding:11px 14px;
+  border-radius:6px;
+  color:#b9cbc6;
+  background:#1a2a2c;
+  font-size:8px
+}
+.no.enlace {
+  border-color:#4b7165;
+  color:#b9cbc6
+}
+.no.roteador {
+  border-color:#688e73;
+  color:var(--verde)
+}
+.no.comutador {
+  border-color:#4b7165;
+  color:#b9cbc6
+}
+.conector {
+  width:12%;
+  border-top:1px dashed #47635b
+}
+.ramificacoes {
+  position:absolute;
+  top:118px;
+  left:62%;
+  width:18%;
+  height:28px;
+  border-top:1px dashed #47635b;
+  border-left:1px dashed #47635b;
+  border-right:1px dashed #47635b
+}
+.pontos-finais {
+  position:absolute;
+  top:156px;
+  left:55%;
+  width:32%;
+  display:flex;
+  justify-content:space-between;
+  color:#78918b;
+  font-size:8px
+}
+.equipamentos {
+  padding:37px 0
+}
+.cabecalho-equipamentos {
+  margin-bottom:13px
+}
+.filtros {
+  display:flex;
+  gap:5px
+}
+.filtro {
+  color:#819696;
+  background:transparent;
+  border:1px solid var(--linha);
+  border-radius:5px;
+  padding:7px 10px;
+  font-size:9px;
+  cursor:pointer
+}
+.filtro.ativo {
+  background:#294234;
+  border-color:#446c50;
+  color:var(--verde)
+}
+.filtro:focus-visible {
+  outline:2px solid var(--verde);
+  outline-offset:2px
+}
+.lista-equipamentos {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px
+}
+.cartao-equipamento {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:15px
+}
+.icone-equipamento {
+  display:grid;
+  place-items:center;
+  flex:0 0 35px;
+  height:35px;
+  background:#24363a;
+  color:var(--verde);
+  border-radius:7px;
+  font:600 12px "Consolas"
+}
+.info-equipamento {
+  flex:1;
+  min-width:0
+}
+.info-equipamento strong {
+  display:block;
+  font-size:12px
+}
+.identificador-equipamento {
+  display:block;
+  color:#80918e;
+  font-size:8px;
+  margin-top:5px
+}
+.metadados-equipamento {
+  text-align:right
+}
+.latencia {
+  font:600 12px "Consolas";
+  color:#c4d2cb
+}
+.situacao {
+  display:block;
+  margin-top:5px;
+  font-size:8px;
+  color:var(--verde)
+}
+.situacao.atencao {
+  color:var(--ambar)
+}
+.vazio {
+  color:var(--suave);
+  font-size:12px
+}
+footer {
+  border-top:1px solid var(--linha);
+  padding:19px 0 30px;
+  color:#6d8181;
+  font-size:8px
+}
+@media(max-width:700px) {
+  header {
+    padding:0 18px
+  }
+  .marca small {
+    display:none
+  }
+  main {
+    padding:0 18px
+  }
+  .introducao {
+    align-items:flex-start;
+    flex-direction:column;
+    padding:42px 0 25px
+  }
+  .disponibilidade {
+    border-left:0;
+    border-top:1px solid var(--linha);
+    padding:14px 0 0;
+    min-width:0
+  }
+  .resumo {
+    grid-template-columns:repeat(2,1fr)
+  }
+  .cartao-topologia {
+    padding:17px 12px
+  }
+  .topologia {
+    min-height:155px
+  }
+  .ramificacoes {
+    top:109px
+  }
+  .pontos-finais {
+    top:143px
+  }
+  .cabecalho-equipamentos {
+    align-items:flex-start;
+    flex-direction:column
+  }
+  .lista-equipamentos {
+    grid-template-columns:1fr
+  }
+}
